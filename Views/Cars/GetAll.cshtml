@@ -1,0 +1,69 @@
+@model List<Car>;
+
+@{
+    var cars = Model;
+}
+
+@{
+    void RenderTableBody()
+    {
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>HtmlDescription</th>
+            <th>usage duration</th>
+        </tr>
+        @for (int i = 0; i < cars.Count; i++)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@cars[i].Model from @cars[i].Manufacturer</td>
+                <td>
+                    <figure>
+                        <img src="@cars[i].Image" alt="@cars[i].Model From @cars[i].Manufacturer" />
+                        <figcaption>@cars[i].Model From @cars[i].Manufacturer</figcaption>
+                    </figure>
+                </td>
+                <td>@Html.Raw(cars[i].HtmlDescription)</td>
+                <td>@(DateTime.Now.Year - cars[i].FirstUseDate.Year)</td>
+                <td><a href="/cars/getdetails?carModel=@cars[i].Model&source=table">Details</a></td>
+            </tr>
+        }
+    }
+}
+
+<table>
+    @{
+        RenderTableBody();
+    }
+</table>
+
+<hr>
+
+@{
+    void RenderListBody()
+    {
+        @foreach (var car in cars)
+        {
+            <li>
+                <p>Name: @car.Model from @car.Manufacturer</p>
+                <figure>
+                    <img src="@car.Image" alt="@car.Model From @car.Manufacturer" />
+                    <figcaption>@car.Model From @car.Manufacturer</figcaption>
+                </figure>
+                <p>HtmlDescription: @Html.Raw(car.HtmlDescription)</p>
+                <p>usage duration: @(DateTime.Now.Year - car.FirstUseDate.Year)</p>
+                <a href="/cars/getdetails?carModel=@car.Model&source=list">Details</a>
+            </li>
+        }
+    }
+}
+
+<ul>
+    @{
+        RenderListBody();
+    }
+</ul>
+
+
