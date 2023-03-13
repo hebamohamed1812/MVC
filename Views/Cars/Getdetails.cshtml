@@ -6,9 +6,9 @@
 
 <div>
     <p>Name: @car.Model from @car.Manufacturer</p>
-    <p>usage duration: @(DateTime.Now.Year - car.FirstUseDate.Year)</p>
     Image: <figure>
             <img src="@car.Image" alt="@car.Model From @car.Manufacturer" />
             <figcaption>@car.Model From @car.Manufacturer</figcaption>
     </figure>
+    <p>Usage Duration: @(DateTime.Now.Year - car.FirstUseDate.Year)</p>
 </div>

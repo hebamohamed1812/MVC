@@ -5,10 +5,10 @@ using lab1;
 
 namespace lab1.Controllers
 {
-    // public enum Source {
-    //     table,
-    //     list
-    // }
+    public enum Source {
+        table,
+        list
+    }
 
     public class CarsController : Controller
     {
@@ -18,10 +18,10 @@ namespace lab1.Controllers
             return View(cars);
         }
 
-        public IActionResult GetDetailsForCar(string carModel)
+        public IActionResult GetDetailsForCar(string carModel, Source? source)
         {
             var car = Car.GetCars().FirstOrDefault(c => c.Model == carModel);
-            return View("GetDetails", car);
+            return View("getdetails", car);
         }
     }
 }
