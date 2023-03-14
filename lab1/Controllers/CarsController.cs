@@ -10,6 +10,12 @@ namespace lab1.Controllers
         list
     }
 
+    public class CarInfo
+    {
+        public Car? car { get; set; }
+        public Source? source { get; set; }
+    }
+
     public class CarsController : Controller
     {
         public IActionResult GetAll()
@@ -21,7 +27,9 @@ namespace lab1.Controllers
         public IActionResult GetDetailsForCar(string carModel, Source? source)
         {
             var car = Car.GetCars().FirstOrDefault(c => c.Model == carModel);
-            return View("Getdetails", car);
+            CarInfo info = new CarInfo();
+            info.source = source;
+            return View(info);
         }
     }
 }
