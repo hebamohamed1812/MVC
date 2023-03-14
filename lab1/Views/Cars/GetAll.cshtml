@@ -22,16 +22,16 @@
             {
                 <tr>
                     <th scope="row">@i</th>
-                    <td>@cars[i].Model from @cars[i].Manufacturer</td>
+                    <td>@cars[i].Name</td>
                     <td>
                         <figure>
-                            <img src="@cars[i].Image" alt="@cars[i].Model From @cars[i].Manufacturer" />
-                            <figcaption>@cars[i].Model From @cars[i].Manufacturer</figcaption>
+                            <img src="@cars[i].Image" alt="@cars[i].Name" />
+                            <figcaption>@cars[i].Name</figcaption>
                         </figure>
                     </td>
                     <td>@Html.Raw(cars[i].HtmlDescription)</td>
-                    <td>@(DateTime.Now.Year - cars[i].FirstUseDate.Year)</td>
-                    <td><a href="/cars/getdetails?carModel=@cars[i].Model&source=table">Details</a></td>
+                    <td>@cars[i].Duration</td>
+                    @* <td><a href="/cars/getdetails?carModel=@cars[i].Model&source=@Source.table">Details</a></td> *@
                 </tr>
             }
         </tbody>
@@ -50,14 +50,14 @@
         @foreach (var car in cars)
         {
             <li class="list-group-item">
-                <p>Name: @car.Model from @car.Manufacturer</p>
-                Image: <figure>
-                    <img src="@car.Image" alt="@car.Model From @car.Manufacturer" />
-                    <figcaption>@car.Model From @car.Manufacturer</figcaption>
+                <p>@car.Name</p>
+                <figure>
+                    <img src="@car.Image" alt="@car.Name" />
+                    <figcaption>@car.Name</figcaption>
                 </figure>
-                <p>HtmlDescription: @Html.Raw(car.HtmlDescription)</p>
-                <p>Usage Duration: @(DateTime.Now.Year - car.FirstUseDate.Year)</p>
-                Details: <a href="/cars/getdetails?carModel=@car.Model&source=list">Details</a>
+                <p>@Html.Raw(car.HtmlDescription)</p>
+                <p>@car.Duration</p>
+                @* Details: <a href="/cars/getdetails?carModel=@car.Model&source=@Source.list">Details</a> *@
             </li>
         }
     }

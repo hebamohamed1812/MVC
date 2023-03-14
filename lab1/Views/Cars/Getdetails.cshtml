@@ -2,13 +2,18 @@
 
 @{
     var car = Model;
+    @* var source = Model.source; *@
 }
 
 <div>
-    <p>Name: @car.Model from @car.Manufacturer</p>
-    Image: <figure>
-            <img src="@car.Image" alt="@car.Model From @car.Manufacturer" />
-            <figcaption>@car.Model From @car.Manufacturer</figcaption>
+    <p>@($"Name: {car?.Name}")</p>
+    <p>Usage Duration: @car?.Duration</p>
+    <p>Description: @Html.Raw(car?.HtmlDescription)</p>
+    <p>Image:
+    <figure>
+        <img src="@car?.Image" alt="@car?.Name" />
+        <figcaption>@car?.Name</figcaption>
     </figure>
-    <p>Usage Duration: @(DateTime.Now.Year - car.FirstUseDate.Year)</p>
 </div>
+
+@* <div class="alert-info">From: @source</div> *@
