@@ -64,7 +64,6 @@ public class TicketController : Controller
         var ticketToEdit = _tickets.First(a => a.Id == id);
         var ticket = new EditTicket
         {
-            Id = ticketToEdit.Id,
             Description = ticketToEdit.Description,
             IsClosed = ticketToEdit.IsClosed,
             Severity = ticketToEdit.Severity,
