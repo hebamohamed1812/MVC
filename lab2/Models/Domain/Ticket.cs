@@ -1,19 +1,20 @@
+using System.Text.Json;
 namespace lab2.Models.Domain;
 public class Ticket
 {
-    public DateTime CreatedDate { get; set; }
-	public bool IsClosed { get; set; }
-    public string? Description { get; set; } = string.Empty;
-	public Severity Severity { get; set; }
+    public Guid Id { get; set; }
+    public string Description { get; set; } = string.Empty;
+    public bool IsClosed { get; set; }
+    public Severity Severity { get; set; }
+    public Department? Department { get; set; }
+    public ICollection<Developer> Developers { get; set; } = new HashSet<Developer>();
 
-    public Ticket()
+     public Ticket()
     {
-        CreatedDate = DateTime.Now;
+        Id = Guid.NewGuid();
     }
 	
     private static readonly List<Ticket> ticket = new List<Ticket>();
 
-	public static List<Ticket> GetTicketList() => ticket;
+	public static List<Ticket> GetTickets() => ticket;
 }
-
-
