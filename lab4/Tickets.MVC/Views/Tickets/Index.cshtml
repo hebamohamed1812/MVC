@@ -1,0 +1,18 @@
+@using Tickets.BL.ViewModels;
+@model List<TicketReadVM>;
+
+<a asp-action="Add">Add Ticket</a>
+@foreach (var item in Model)
+{
+    <ul class="list-group">
+        <li class="list-group-item">@Html.Raw(item.TitleMarkup)</li>
+        <li class="list-group-item">@item.Description</li>
+        <li class="list-group-item">@item.Severity</li>
+        <li class="list-group-item">
+            <form action="Tickets/Delete/@item.Id" method="post">
+                <button class="btn btn-dark"> Delete </button>
+            </form>
+        </li>
+    </ul>
+    <br>
+}
