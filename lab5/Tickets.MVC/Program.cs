@@ -18,7 +18,7 @@ builder.Services.AddScoped<IDepartmentsManager, DepartmentsManager>();
 builder.Services.AddScoped<IDevelopersManager, DevelopersManager>();
 
 builder.Services.AddScoped<ITicketsRepo, TicketsRepo>();
-builder.Services.AddScoped<DepartmentsRepo, DepartmentsRepo>();
+builder.Services.AddScoped<IDepartmentsRepo, DepartmentsRepo>();
 builder.Services.AddScoped<IDevelopersRepo, DevelopersRepo>();
 
 var app = builder.Build();
