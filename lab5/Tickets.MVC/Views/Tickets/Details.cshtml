@@ -1,0 +1,14 @@
+﻿@model Tickets.BL.ViewModels.TicketDetailsVM
+
+@{
+    var ticket = Model;
+}
+
+<h2>Ticket Info</h2>
+<dl>
+    <dt>@Html.DisplayNameFor(m=>m.DepartmentName)</dt>
+    <dd>@ticket.DepartmentName</dd>
+
+    <dt>No. of Developers</dt>
+    <dd>@ticket.DevelopersCount</dd>
+</dl>
