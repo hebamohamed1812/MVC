@@ -1,11 +1,15 @@
 using Tickets.BL;
 using Tickets.DAL;
 using Microsoft.EntityFrameworkCore;
+using Tickets.Models.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<ImageOptions>(
+    builder.Configuration.GetSection("ImagesOptions"));
 
 var connectionString = builder.Configuration.GetConnectionString("tickets");
 builder.Services.AddDbContext<TicketsContext>(options

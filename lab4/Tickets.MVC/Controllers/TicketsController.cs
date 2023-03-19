@@ -6,7 +6,6 @@ namespace Tickets.MVC.Controllers;
 public class TicketsController : Controller
 {
     private readonly ITicketsManager _ticketsManager;
-
     public TicketsController(ITicketsManager ticketsManager)
     {
         _ticketsManager = ticketsManager;

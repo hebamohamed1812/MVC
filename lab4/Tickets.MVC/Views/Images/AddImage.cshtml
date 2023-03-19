@@ -1,0 +1,18 @@
+@using Tickets.Models.ViewModels;
+@model AddImageVM
+
+<form action="AddImage" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <label asp-for="Id"></label>
+        <input asp-for="Id" />
+    </div>
+
+    <div>
+        <label asp-for="Image"></label>
+        <input asp-for="Image" type="file" />
+    </div>
+    <div>
+        <button class="btn btn-dark">Submit</button>
+    </div>
+</form>
